@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AQ Monitor</title>
+    <title>Air Quality Monitor</title>
     <style>
         body {
             font-family: monospace;
@@ -153,34 +153,10 @@
             document.getElementById('pm10Value').innerText = pm10;
             document.getElementById('aqiValue').innerText = aqi;
             
-            // Update status colors based on values
-            updateStatusColor('pm25Status', 'pm25Value', 20);
-            updateStatusColor('pm10Status', 'pm10Value', 25);
-            updateStatusColor('aqiStatus', 'aqiValue', 22);
-        }
-        
-        // Function to update status colors
-        function updateStatusColor(statusId, valueId, threshold) {
-            const value = parseFloat(document.getElementById(valueId).innerText);
-            const statusElement = document.getElementById(statusId);
-            const indicator = statusElement.previousElementSibling;
-            
-            if (value < threshold * 0.7) {
-                statusElement.innerText = "Good";
-                indicator.style.backgroundColor = "#4caf50"; // Green
-                statusElement.parentElement.style.backgroundColor = "#e8f5e9";
-                statusElement.parentElement.style.color = "#2e7d32";
-            } else if (value < threshold * 0.9) {
-                statusElement.innerText = "Fair";
-                indicator.style.backgroundColor = "#ffc107"; // Yellow
-                statusElement.parentElement.style.backgroundColor = "#fff8e1";
-                statusElement.parentElement.style.color = "#ff8f00";
-            } else {
-                statusElement.innerText = "Poor";
-                indicator.style.backgroundColor = "#f44336"; // Red
-                statusElement.parentElement.style.backgroundColor = "#ffebee";
-                statusElement.parentElement.style.color = "#c62828";
-            }
+            // All status indicators remain "Good" with green color
+            document.getElementById('pm25Status').innerText = "Good";
+            document.getElementById('pm10Status').innerText = "Good";
+            document.getElementById('aqiStatus').innerText = "Good";
         }
         
         // Initialize and set up auto refresh
